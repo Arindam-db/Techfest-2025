@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TIT Electrical TechFest</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- RESET & GLOBAL --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4f7fa;
+      color: #222;
+      line-height: 1.6;
+      font-family: 'Open Sans', sans-serif;
+    }
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* --- HEADER / HERO --- */
+    header {
+      background: linear-gradient(to right, #0A8FC6, #357BFE);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* --- ABOUT --- */
+    .about {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    .about h2 {
+      color: #00274D;
+      margin-bottom: 1rem;
+    }
+
+    /* --- GAMES SECTION --- */
+    .games {
+      background: #fff;
+      padding: 3rem 1rem;
+    }
+    .games h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #00274D;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .card {
+      background: #fdfdfd;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+    .card img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      object-position: center;
+    }
+    .card-content {
+      padding: 1.2rem;
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: #005f9e;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    .card p {
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+    }
+    .card strong {
+      display: block;
+      margin-top: 0.8rem;
+      margin-bottom: 0.3rem;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      color: #222;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.9rem;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+    }
+    .card ul li::before {
+      content: "";
+      color: #FFA500;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background: #00274D;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header>
+    <img src="logo.png" alt="TIT Logo">
+    <h1>Tripura Institute Of Technology</h1>
+    <p>Department Of Electrical Engineering<p>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <h2>About the Fest</h2>
+    <p>
+      Welcome to the Electrical Engineering TechFest of Tripura Institute of Technology.
+      Join us for an electrifying experience filled with games, competitions, and innovation.
+      Dates will be announced soon. Stay tuned!
+    </p>
+  </section>
+
+  <!-- GAMES -->
+  <section class="games">
+    <h2>Our Events</h2>
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="electrivia.jpg" alt="Electrivia Event">
+        <div class="card-content">
+          <h3>🔌 Electrivia</h3>
+          <p>A clue-based scavenger hunt where participants follow hints that lead to subsequent clues. The game tests electrical knowledge, problem-solving, and speed. The fastest player to find the final answer wins.</p>
+          <strong>Coordinators:</strong>
+          <ul>
+            <li>Aparna Debnath</li>
+            <li>Jui Saha</li>
+            <li>Prabal Nama Das</li>
+            <li>Hridam Debnath</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="survival.jpg" alt="Survival Arena Event">
+        <div class="card-content">
+          <h3>⚡ Survival Arena</h3>
+          <p>Compete in thrilling strategy and endurance challenges designed to push your limits. Players face elimination rounds where only the smartest and quickest survive.</p>
+          <strong>Coordinators:</strong>
+          <ul>
+            <li>Swarnabha De</li>
+            <li>Supratim Sutradhar</li>
+            <li>Bappi Bardhan</li>
+            <li>Basundhara Singh</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="recall.jpg" alt="Recall Rush Event">
+        <div class="card-content">
+          <h3>🔋 Recall Rush</h3>
+          <p>A hybrid game combining elements of "Simon Says" and "Whack-a-Mole." Players must quickly recall sequences or commands and respond rapidly to sudden prompts. It tests both memory and reflexes under time pressure, with elimination or scoring for mistakes.</p>
+          <strong>Coordinators:</strong>
+          <ul>
+            <li>Arindam Deb</li>
+            <li>Rajat Chakraborty</li>
+            <li>Ruhit Sinha</li>
+            <li>Uday Roy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="battlegrounds.jpg" alt="Battlegrounds Tournament Event">
+        <div class="card-content">
+          <h3>🎮 Battlegrounds Tournament</h3>
+          <p>BGMI (Battlegrounds Mobile India): A classic squad vs squad battle royale game where multiple four-player teams compete to be the last squad standing. Players fight strategically on a shrinking map, emphasizing teamwork, strategy, and combat skills.</p>
+          <strong>Coordinators:</strong>
+          <ul>
+            <li>Aman Marak</li>
+            <li>Suhel Tripura</li>
+            <li>Swapnadeep Sen</li>
+            <li>Abir Bakshi</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Electrical Engineering TechFest | Tripura Institute of Technology</p>
+  </footer>
+
+</body>
+  </html>
+          
