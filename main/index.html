@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TIT Electrical TechFest</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     /* --- RESET & GLOBAL --- */
     * {
@@ -13,134 +15,413 @@
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
-      background: #f4f7fa;
-      color: #222;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #2c3e50;
       line-height: 1.6;
       font-family: 'Open Sans', sans-serif;
+      overflow-x: hidden;
     }
+    
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
     }
+    
     a {
       text-decoration: none;
       color: inherit;
     }
 
+    /* --- ANIMATED BACKGROUND --- */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      z-index: -1;
+      pointer-events: none;
+    }
+
     /* --- HEADER / HERO --- */
     header {
-      background: linear-gradient(to right, #0A8FC6, #357BFE);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
+      position: relative;
+      overflow: hidden;
     }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.1; }
+      50% { transform: scale(1.1); opacity: 0.2; }
+    }
+    
     header img {
-      width: 120px;
-      margin-bottom: 1rem;
+      width: 140px;
+      margin-bottom: 1.5rem;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.3);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
     }
+    
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
     }
+    
     header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: 1.3rem;
+      opacity: 0.95;
+      font-weight: 400;
+      position: relative;
+      z-index: 2;
     }
 
     /* --- ABOUT --- */
     .about {
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       max-width: 900px;
       margin: auto;
       text-align: center;
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      margin-top: -2rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
     }
+    
     .about h2 {
-      color: #00274D;
-      margin-bottom: 1rem;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      position: relative;
+    }
+    
+    .about h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+    
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #5a6c7d;
+    }
+
+    /* --- REGISTRATION NOTICE --- */
+    .registration-notice {
+      background: rgba(255,255,255,0.9);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 800px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .registration-notice .dates {
+      font-style: italic;
+      color: #7f8c8d;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     /* --- GAMES SECTION --- */
     .games {
-      background: #fff;
-      padding: 3rem 1rem;
+      background: transparent;
+      padding: 4rem 1rem;
     }
+    
     .games h2 {
       text-align: center;
-      margin-bottom: 2rem;
-      color: #00274D;
+      margin-bottom: 3rem;
+      color: #2c3e50;
+      font-size: 2.5rem;
+      position: relative;
     }
+    
+    .games h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+    
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
       margin: auto;
     }
+    
     .card {
-      background: #fdfdfd;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: flex;
+      flex-direction: column;
     }
+    
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
     }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .card:hover::before {
+      opacity: 1;
+    }
+    
     .card img {
       width: 100%;
-      aspect-ratio: 3/2;
+      aspect-ratio: 16/9;
       object-fit: cover;
       object-position: center;
+      transition: transform 0.3s ease;
     }
+    
+    .card:hover img {
+      transform: scale(1.05);
+    }
+    
     .card-content {
-      padding: 1.2rem;
+      padding: 1.8rem;
+      position: relative;
+      z-index: 2;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
+    
     .card h3 {
-      margin-bottom: 0.5rem;
-      color: #005f9e;
+      margin-bottom: 1rem;
+      color: #2c3e50;
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
+      font-size: 1.3rem;
     }
+    
     .card p {
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
       font-family: 'Open Sans', sans-serif;
       font-weight: 400;
+      color: #5a6c7d;
+      line-height: 1.7;
+      flex-grow: 1;
     }
+    
     .card strong {
       display: block;
-      margin-top: 0.8rem;
-      margin-bottom: 0.3rem;
-      font-family: 'Open Sans', sans-serif;
+      margin-top: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
-      color: #222;
+      color: #2c3e50;
+      font-size: 1.05rem;
     }
+    
     .card ul {
       list-style: none;
       padding-left: 0;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-family: 'Open Sans', sans-serif;
       font-weight: 400;
+      margin-bottom: 1.5rem;
     }
+    
+    .card ul li {
+      padding: 0.3rem 0;
+      color: #5a6c7d;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
     .card ul li::before {
-      content: "";
-      color: #FFA500;
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-size: 1rem;
+    }
+
+    /* --- CARD REGISTER BUTTON --- */
+    .card-register-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      margin-top: auto;
+    }
+    
+    .card-register-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .card-register-btn:hover::before {
+      left: 100%;
+    }
+    
+    .card-register-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+    }
+    
+    .card-register-btn i {
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
     }
 
     /* --- FOOTER --- */
     footer {
-      background: #00274D;
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
       color: #fff;
       text-align: center;
-      padding: 1.5rem 1rem;
-      margin-top: 2rem;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      position: relative;
     }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M10,10 L40,10 M25,10 L25,40 M10,40 L40,40" stroke="%23ffffff" stroke-width="0.5" opacity="0.1" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+    }
+    
     footer p {
-      font-size: 0.9rem;
-      opacity: 0.85;
+      font-size: 1rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
     }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header p {
+        font-size: 1.1rem;
+      }
+      
+      .about {
+        margin-top: -1rem;
+        padding: 3rem 1.5rem;
+      }
+      
+      .games h2, .about h2 {
+        font-size: 2rem;
+      }
+      
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .card-register-btn {
+        padding: 0.7rem 1.3rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* --- LOADING ANIMATION --- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .card {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
   </style>
 </head>
 <body>
@@ -149,7 +430,7 @@
   <header>
     <img src="logo.png" alt="TIT Logo">
     <h1>Tripura Institute Of Technology</h1>
-    <p>Department Of Electrical Engineering<p>
+    <p>Department Of Electrical Engineering</p>
   </header>
 
   <!-- ABOUT -->
@@ -158,8 +439,15 @@
     <p>
       Welcome to the Electrical Engineering TechFest of Tripura Institute of Technology.
       Join us for an electrifying experience filled with games, competitions, and innovation.
-      Dates will be announced soon. Stay tuned!
+      Get ready to showcase your skills, learn from peers, and compete for exciting prizes in this spectacular celebration of technology and creativity.
     </p>
+  </section>
+
+  <!-- REGISTRATION NOTICE -->
+  <section class="registration-notice">
+    <div class="dates">
+      <p><strong>Registration Opens:</strong> Coming Soon | <strong>Last Date to Register:</strong> Coming Soon</p>
+    </div>
   </section>
 
   <!-- GAMES -->
@@ -179,6 +467,9 @@
             <li>Prabal Nama Das</li>
             <li>Hridam Debnath</li>
           </ul>
+          <a href="#" class="card-register-btn" onclick="alert('Registration for Electrivia will be available soon!')">
+            Register <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
 
@@ -194,6 +485,9 @@
             <li>Bappi Bardhan</li>
             <li>Basundhara Singh</li>
           </ul>
+          <a href="#" class="card-register-btn" onclick="alert('Registration for Survival Arena will be available soon!')">
+            Register <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
 
@@ -201,7 +495,7 @@
         <img src="recall.jpg" alt="Recall Rush Event">
         <div class="card-content">
           <h3>🔋 Recall Rush</h3>
-          <p>A hybrid game combining elements of "Simon Says" and "Whack-a-Mole." Players must quickly recall sequences or commands and respond rapidly to sudden prompts. It tests both memory and reflexes under time pressure, with elimination or scoring for mistakes.</p>
+          <p>A hybrid game combining elements of "Simon Says" and "Whack-a-Mole." Players must quickly recall sequences or commands and respond rapidly to sudden prompts. It tests both memory and reflexes under time pressure.</p>
           <strong>Coordinators:</strong>
           <ul>
             <li>Arindam Deb</li>
@@ -209,6 +503,9 @@
             <li>Ruhit Sinha</li>
             <li>Uday Roy</li>
           </ul>
+          <a href="#" class="card-register-btn" onclick="alert('Registration for Recall Rush will be available soon!')">
+            Register <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
 
@@ -224,6 +521,9 @@
             <li>Swapnadeep Sen</li>
             <li>Abir Bakshi</li>
           </ul>
+          <a href="#" class="card-register-btn" onclick="alert('Registration for Battlegrounds Tournament will be available soon!')">
+            Register <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
 
@@ -236,5 +536,4 @@
   </footer>
 
 </body>
-  </html>
-          
+</html>
